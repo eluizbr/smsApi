@@ -57,6 +57,7 @@
                     $rootScope.spinner = false;
                     var pageSize = 1;
                     vm.hasPayment = false;
+                    vm.hasPlan = false;
                     vm.hasContract = result.data.hasContract;
 
                     // Seta true ou false se o cliente já gerou algum boleto
@@ -68,18 +69,12 @@
                     // Paginação para os Boletos
                     if (vm.client.paymentId.length >=3) {
                         pageSize = 3;
-                        vm.hasPayment = true;
                     }
 
-                    // Verifica sem já existe algum pagamento
-                    if (vm.client.paymentId.length >=1) {
-                        vm.hasPayment = true;
-                    }
-
+                    // Se tiver um plano, gera o contrato
                     if (vm.client.planoId) {
                         vm.hasPlan = true;
-                    } else {
-                        vm.hasPlan = false;
+                        vm.hasPayment = true;
                     }
 
                     vm.currentPage = 0;

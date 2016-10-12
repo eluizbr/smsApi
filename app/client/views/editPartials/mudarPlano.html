@@ -17,7 +17,7 @@
                     <ul class="dropdown-menu">
                         <li
                             ng-click="vm.planSelected(plan._id,vm.client.planoId._id,vm.client._id)"
-                            ng-repeat="plan in vm.plans">
+                            ng-repeat="plan in vm.plans | filter: {'isActive': true}">
                             <a>{{ plan.planName }} - R$ {{ plan.costPerSms }}</a>
                         </li>
                     </ul>
