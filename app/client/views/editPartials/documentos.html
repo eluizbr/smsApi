@@ -1,0 +1,45 @@
+<div class="table-responsive" ng-if="vm.client.hasContract">
+    <table class="table">
+        <thead class="text-primary">
+            <th>Nome</th>
+            <th>Download</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Contrato</td>
+                <td ng-if="!client.isPaid">
+                    <a href='http://127.0.0.1:8080/contracts/{{ vm.client.cnpj }}.docx' target='blank_'>
+                        <i class="ti-file text text-danger"></i>
+                    </a>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="card-content col-md-8 col-md-offset-2" ng-if="!vm.client.hasContract">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Contrato Pendende</th>
+                <th></th>
+                <th class="text-right"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="text-right">
+                    <button ng-click="vm.gerarContrato(vm.client.cnpj)" type="button" class="btn btn-wd btn-info btn-fill btn-rotate pull-right">
+                        <span class="btn-label">
+                            <i class="ti-reload"></i>
+                        </span>
+                        Gerar contrato
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

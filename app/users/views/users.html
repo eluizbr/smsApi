@@ -1,0 +1,51 @@
+
+<i class="fa fa-spinner fa-pulse fa-5x  spinner" ng-if="spinner"></i>
+
+<div class="col-md-10 col-md-offset-1" ng-if="!spinner">
+    <div class="card">
+        <div class="header">
+            <div class="col-md-4">
+                <h4 class="title">Lista de usuários</h4>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button ui-sref="main.userAdd" class="btn btn-default btn-fill pull-right">Novo Usuário</button>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Contato</th>
+                        <th>Status</th>
+                        <th class=" text-right">Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in vm.users">
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.firstName }} {{ user.lastName }}</td>
+                        <td ng-if="user.isActive" class="text text-success"><b>Ativo</b></td>
+                        <td ng-if="!user.isActive" class="text text-danger"><b>Inativo</b></td>
+
+                        <td class=" text-right">
+                            <a ui-sref="main.userEdit({user:user._id})" rel="tooltip" title="Editar" class="btn btn-success btn-simple btn-xs">
+                                <i class="ti-pencil-alt"></i>
+                            </a>
+                            <a  rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                <i class="ti-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<i class="fa fa-spinner fa-pulse fa-5x spinner" ng-if="spinner"></i>
+
+<div class="row animate"  ng-if="!spinner">
+    <div class="col-lg-4 col-md-5">
+
+        <div ui-view="userProfile"></div>
+
+        <div ui-view="resetPass"></div>
+
+
+    </div>
+
+    <div class="col-lg-8 col-md-7">
+
+        <div ui-view="userForm"></div>
+
+    </div>
+
+</div>

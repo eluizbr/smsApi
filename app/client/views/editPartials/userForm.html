@@ -1,0 +1,157 @@
+<div class="card">
+    <div class="header">
+        <h4 class="title">{{ vm.client.razao }}</h4>
+    </div>
+    <div class="content">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Razão</label>
+                        <input
+                            ng-model="vm.client.razao"
+                            type="text"
+                            class="form-control border-input"
+                            disabled
+                            placeholder="Company">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>CNPJ</label>
+                        <input
+                            mask="999.999.999/999-99"
+                            clean="true"
+                            ng-model="vm.client.cnpj"
+                            type="text"
+                            disabled
+                            class="form-control border-input"
+                            placeholder="CNPJ">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Fantasia</label>
+                        <input
+                            ng-model="vm.client.fantasia"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Fnatasia">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Contato</label>
+                        <input
+                            ng-model="vm.client.contato"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Contato">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input
+                            ng-model="vm.client.email"
+                            type="email"
+                            class="form-control border-input"
+                            placeholder="Email">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input
+                            mask="(99)9?9999-9999"
+                            clean="true"
+                            ng-model="vm.client.telefone"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Telefone">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Logradouro</label>
+                        <input
+                            ng-model="vm.client.logradouro"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Logradouro">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Número</label>
+                        <input
+                            ng-model="vm.client.numero"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Número">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>Complemento</label>
+                        <input
+                            ng-model="vm.client.complemento"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Complemento">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Cidade</label>
+                        <input
+                            ng-model="vm.client.cidade"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Cidade">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <input
+                            ng-model="vm.client.estado"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Estado">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>CEP</label>
+                        <input
+                            mask="99999-999"
+                            clean="true"
+                            ng-model="vm.client.cep"
+                            ng-keyup="vm.checkZIP($event)"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="CEP">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button
+                    ng-disabled="!vm.wrongZip"
+                    ng-click="vm.updateUser(vm.client)"
+                    type="submit"
+                    class="btn btn-info btn-fill btn-wd">
+                    Atualizar
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

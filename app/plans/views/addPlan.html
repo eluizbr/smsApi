@@ -1,0 +1,62 @@
+<div class="card col-md-8 col-md-offset-2">
+    <div class="content">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nome do Plano</label>
+                        <input
+                            ng-model="plan.planName"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Digite o nome do plano">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Valor por SMS</label>
+                        <input
+                            mask="99.99"
+                            clean=false
+                            ng-model="plan.costPerSms"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Custo por sms enviado">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Franquia SMS</label>
+                        <input
+                            ng-model="plan.smsFree"
+                            type="text"
+                            value="0"
+                            class="form-control border-input"
+                            placeholder="Franquia SMS">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vencimento</label>
+                        <input
+                            type="text"
+                            id="data"
+                            class="form-control datetimepicker"
+                            placeholder="Vencimento do plano">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button
+                    ng-click="vm.addPlan(plan)"
+                    class="btn btn-info btn-fill btn-wd pull-right">
+                    Criar plano
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

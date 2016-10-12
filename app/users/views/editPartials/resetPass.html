@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="header">
+        <h4 class="title">Dados de acesso</h4>
+    </div>
+    <div class="content">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Usúario</th>
+                        <th>Senha</th>
+                        <th class="text-right"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ vm.user.username }}</td>
+                        <td class="hidePass">{{ vm.user.senha }}</td>
+                        <td class="text-right">
+                            <button ng-click="vm.gerarSenha(vm.user._id)" type="button" class="btn btn-wd btn-info btn-fill btn-rotate pull-right">
+                                <span class="btn-label">
+                                    <i class="ti-reload"></i>
+                                </span>
+                                Gerar nova senha
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="input-group col-md-4 pull-right">
+    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+    <input ng-model="search.boletoId.nossoNum" type="text" class="form-control" placeholder=" Nosso número">
+</div>
+<div class="card-content table-responsive">
+    <table class="table">
+        <thead class="text-primary">
+            <th>Vencimento</th>
+            <th>Valor</th>
+            <th>Nosso Número</th>
+            <th>boleto</th>
+            <th>Quitar</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="
+                    client in vm.client.paymentId | filter:search |
+                    startFrom: vm.currentPage * vm.pageSize |
+                    limitTo:vm.pageSize" >
+                <td>{{ client.vencimento | date }}</td>
+                <td>{{ client.valor | currency: 'R$ ' }}</td>
+                <td>{{ client.boletoId.nossoNum }}</td>
+                <td ng-if="!client.isPaid">
+                    <a href='https://sandbox.boletocloud.com/boleto/2via/download/{{ client.boletoId.token }}' target='blank_'>
+                        <i class="ti-file text text-danger"></i>
+                    </a>
+
+                </td>
+                <td ng-if="client.isPaid">
+                    <i class="ti-file text text-success"></i>
+                </td>
+                <td>
+                    <button
+                        ng-disabled="client.isPaid"
+                        ng-checked="client.isPaid"
+                        ng-click="vm.isPaid(client._id)"
+                        ng-class="{'btn-danger':!client.isPaid}"
+                        class="btn btn-sm btn-fill">
+                        <span ng-if="!client.isPaid">Em Aberto</span>
+                        <span ng-if="client.isPaid">Pago</span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <button
+        ng-disabled="vm.currentPage == 0" ng-click="vm.currentPage=vm.currentPage-1"
+        type="button" class="btn btn-wd btn-default btn-fill btn-move-left btn-sm">
+        <span class="btn-label">
+            <i class="ti-angle-left"></i>
+        </span>
+        Voltar
+    </button>
+    <button
+        ng-disabled="vm.currentPage >= vm.client.paymentId.length/vm.pageSize - 1" ng-click="vm.currentPage=vm.currentPage+1"
+        type="button" class="btn btn-wd btn-default btn-fill btn-move-right btn-sm pull-right">
+        Avançar
+        <span class="btn-label">
+            <i class="ti-angle-right"></i>
+        </span>
+
+    </button>
+</div>

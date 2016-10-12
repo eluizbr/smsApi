@@ -1,0 +1,60 @@
+
+<i class="fa fa-spinner fa-pulse fa-5x  spinner" ng-if="spinner"></i>
+
+<div class="col-md-10 col-md-offset-1" ng-if="!spinner">
+    <div class="card">
+        <div class="header">
+            <div class="col-md-4">
+                <h4 class="title">Lista de clientes</h4>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button ui-sref="main.clientAdd" class="btn btn-default btn-fill pull-right">Novo Cliente</button>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Fantasia</th>
+                        <th>CNPJ</th>
+                        <th>Contato</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Saldo</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="client in vm.clients">
+                        <td>{{ client.fantasia }}</td>
+                        <td>{{ client.cnpj | cnpj }}</td>
+                        <td>{{ client.contato }}</td>
+                        <td>{{ client.email }}</td>
+                        <td>{{ client.username }}</td>
+                        <td>{{ client.credito | currency: 'R$ ' }}</td>
+
+                        <td ng-if="client.status == obj.status" ng-repeat="obj in vm.clientStatus">
+                            <b  class="text {{ obj.class }}"> {{ obj.nome }}</b>
+                        </td>
+
+                        <td class=" text-right">
+                            <a ui-sref="main.clientEdit({cnpj:client.cnpj})" rel="tooltip" title="Editar {{ client.fantasia }}" class="btn btn-success btn-simple btn-xs">
+                                <i class="ti-pencil-alt"></i>
+                            </a>
+                            <a  rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                <i class="ti-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

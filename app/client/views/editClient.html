@@ -1,0 +1,70 @@
+<i class="fa fa-spinner fa-pulse fa-5x  spinner" ng-if="spinner"></i>
+
+<div class="row animate" ng-if="!spinner">
+    <div class="col-lg-4 col-md-5">
+
+        <div ui-view="profile"></div>
+
+        <div ui-view="mudarPlano" ng-hide="vm.client.status == 6 || vm.client.status == 7" ></div>
+
+        <div ui-view="gerarBoleto" ng-show="vm.client.status == 4" ></div>
+
+        <div ui-view="resetPass" ng-hide="vm.client.status == 6 || vm.client.status == 7" ></div>
+
+    </div>
+
+    <div class="col-lg-8 col-md-7">
+        <div ui-view="userForm"></div>
+
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Mais informações</h4>
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="left-vertical-tabs">
+                        <ul class="nav nav-stacked" role="tablist">
+                            <li ng-if="vm.hasPayment">
+                                <a data-target="#boletos" role="tab" data-toggle="tab">
+                                    Boletos
+                                </a>
+                            </li class="active">
+                            <li>
+                                <a data-target="#documentos" role="tab" data-toggle="tab">
+                                    Documentos
+                                </a>
+                            </li>
+                            <li>
+                                <a data-target="#userStatus" role="tab" data-toggle="tab">
+                                    Status
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right-text-tabs">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane" id="boletos" ng-if="vm.hasPayment">
+
+                                <div ui-view="boletos"></div>
+
+                            </div>
+
+                            <div class="tab-pane" id="documentos">
+
+                                <div ui-view="documentos"></div>
+
+                            </div>
+
+                            <div class="tab-pane active" id="userStatus">
+
+                                <div ui-view="userStatus"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

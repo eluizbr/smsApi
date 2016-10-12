@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="header">
+        <h4 class="title" ng-if="vm.hasPlan">Plano Atual: <b>{{ vm.client.planoId.planName }}</b></h4>
+        <h4 class="title" ng-if="!vm.hasPlan"><b class="text text-danger">SELECIONE UM PLANO</b></h4>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Alterar o plano</h5>
+            </div>
+            <div class="col-md-6">
+                <div class="dropup">
+                    <button class="btn btn-info btn-block btn-fill dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Selecione um plano
+                        <b class="caret"></b>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li
+                            ng-click="vm.planSelected(plan._id,vm.client.planoId._id,vm.client._id)"
+                            ng-repeat="plan in vm.plans">
+                            <a>{{ plan.planName }} - R$ {{ plan.costPerSms }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

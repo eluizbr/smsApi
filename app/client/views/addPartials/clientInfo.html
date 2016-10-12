@@ -1,0 +1,112 @@
+
+<div class="row">
+    <div
+    ng-class="{ 'col-md-6 col-md-offset-3': !vm.cnpjOK, 'has-error': form.cprf.$invalid }"
+    class="col-md-5 animate">
+    <div class="form-group">
+        <label>CNPJ</label>
+        <input
+        mask="999.999.999/999-99"
+        clean="true"
+        ng-model="vm.form.cprf"
+        id="cprf"
+        clean="true"
+        name="cprf"
+        value="559.155.450/001-10"
+        type="text"
+        class="form-control border-input"
+        placeholder="Digite o cnpj"
+        required>
+    </div>
+</div>
+<div class="col-md-7" ng-if="vm.cnpjOK">
+    <div class="form-group" ng-class="{ 'has-error': form.username.$invalid || !vm.wrongUser}">
+        <label>Username
+            <span ng-if="!vm.wrongUser" class="text text-danger">INDISPONÍVEL
+            </span>
+        </label>
+        <input
+        ng-model="vm.form.username"
+        ng-keyup="vm.checkUsername($event)"
+        type="text"
+        name="username"
+        id="username"
+        ng-minlength="4"
+        class="form-control border-input"
+        placeholder="Digite um username"
+        required>
+    </div>
+</div>
+
+</div>
+
+<div class="animate" ng-if="vm.cnpjOK">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label>Razão Social</label>
+                <input
+                ng-model="vm.form.razao"
+                ng-disabled="!vm.form.username"
+                type="text"
+                class="form-control border-input"
+                placeholder="Razão social">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Fantasia</label>
+                <input
+                ng-model="vm.form.fantasia"
+                ng-disabled="!vm.form.razao"
+                type="text"
+                class="form-control border-input"
+                placeholder="Fantasia">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Contato</label>
+                <input
+                ng-model="vm.form.contato"
+                ng-disabled="!vm.form.fantasia"
+                type="text"
+                class="form-control border-input"
+                placeholder="Nome fantasia"
+                required>
+            </div>
+        </div>
+        <div class="col-md-3"  ng-class="{ 'has-error': form.telefone.$invalid }">
+            <div class="form-group">
+                <label>Telefone</label>
+                <input
+                mask="(99)9?9999-9999"
+                clean="true"
+                ng-model="vm.form.telefone"
+                ng-disabled="!vm.form.contato"
+                type="text"
+                name="telefone"
+                ng-minlength="8"
+                class="form-control border-input"
+                placeholder="Telefone de contato"
+                required>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group" ng-class="{ 'has-error': form.email.$invalid }">
+                <label>Email</label>
+                <input
+                ng-model="vm.form.email"
+                ng-disabled="!vm.form.telefone"
+
+                type="email"
+                name="email"
+                class="form-control border-input"
+                placeholder="Email do contato"
+                required>
+            </div>
+        </div>
+    </div>
+</div>

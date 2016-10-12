@@ -1,0 +1,30 @@
+<div class="col-md-10 col-md-offset-1">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Criar novo cliente</h4>
+        </div>
+        <div class="content">
+
+            <form name="form">
+
+                <div ui-view="clientInfo"></div>
+
+                <div ui-view="addressInfo"></div>
+
+                <div class="clearfix"></div>
+
+
+                <div class="text-center" ng-show="form.$valid && vm.wrongUser">
+                    <button
+                        ng-click="vm.criarClient(vm.form)"
+                        class="btn btn-info btn-fill btn-wd pull-right">
+                        Cadastrar Cliente
+                    </button>
+                </div>
+
+                <div class="clearfix"></div>
+                
+            </form>
+        </div>
+    </div>
+</div>

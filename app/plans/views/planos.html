@@ -1,0 +1,55 @@
+
+<i class="fa fa-spinner fa-pulse fa-5x  spinner" ng-if="spinner"></i>
+
+<div class="col-md-10 col-md-offset-1" ng-if="!spinner">
+    <div class="card">
+        <div class="header">
+            <div class="col-md-4">
+                <h4 class="title">Todos os planos</h4>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button ui-sref="main.planAdd" class="btn btn-default btn-fill pull-right">Novo Plano</button>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="content table-responsive table-full-width">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Plano</th>
+                        <th>Preço SMS</th>
+                        <th>Franquia</th>
+                        <th>Expira em</th>
+                        <th>Usando</th>
+                        <th>Ativo</th>
+                        <th class=" text-right">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="plan in vm.plans">
+                        <td>{{ plan.planName }}</td>
+                        <td>{{ plan.costPerSms | currency: 'R$ ' }}</td>
+                        <td>{{ plan.smsFree }}</td>
+                        <td>{{ plan.expiresIn | date: 'medium' }}</td>
+                        <td>{{ plan.clients.length }}</td>
+                        <td ng-if="plan.isActive"><i class="material-icons text text-success">thumb_up</i></td>
+                        <td ng-if="!plan.isActive"><i class="material-icons text text-danger">thumb_down</i></td>
+                        <td class=" text-right">
+                            <a ui-sref="main.planEdit({id:plan._id})" rel="tooltip" title="Editar Plano" class="btn btn-success btn-simple btn-xs">
+                                <i class="ti-pencil-alt"></i>
+                            </a>
+                            <a  rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                <i class="ti-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

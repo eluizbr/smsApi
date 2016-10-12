@@ -1,0 +1,107 @@
+
+<div class="row" ng-if="form.email.$valid" ng-class="{ 'has-error': form.email.$invalid }">
+    <hr>
+    <div
+    ng-class="{ 'col-md-6 col-md-offset-3': !vm.cepOK }"
+    class="col-md-5">
+    <div class="form-group">
+        <label>CEP</label>
+        <input
+        mask="99999-999"
+        clean="true"
+        ng-model="vm.form.cep"
+        ng-keyup="vm.checkZIP($event)"
+        id="cep"
+        clean="true"
+        type="text"
+        name="cep"
+        class="form-control border-input"
+        placeholder="Digite o CEP"
+        required>
+    </div>
+</div>
+
+</div>
+
+<div class="" ng-if="vm.cepOK">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group" ng-class="{ 'has-error': form.logradouro.$invalid }">
+                <label>Logradouro</label>
+                <input
+                ng-model="vm.form.logradouro"
+                ng-disabled="!vm.form.cep"
+                type="text"
+                name="logradouro"
+                class="form-control border-input"
+                placeholder="Digite o endereço"
+                required>
+            </div>
+        </div>
+        <div class="col-md-2" ng-class="{ 'has-error': form.numero.$invalid }">
+            <div class="form-group">
+                <label>Número</label>
+                <input
+                ng-model="vm.form.numero"
+                ng-disabled="!vm.form.logradouro"
+                type="text"
+                name="numero"
+                class="form-control border-input"
+                placeholder="Número"
+                required>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>Complemento</label>
+                <input
+                ng-model="vm.form.complemento"
+                ng-disabled="!vm.form.numero"
+                type="text"
+                class="form-control border-input"
+                placeholder="Complemento">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group" ng-class="{ 'has-error': form.bairro.$invalid }">
+                <label>Bairro</label>
+                <input
+                ng-model="vm.form.bairro"
+                ng-disabled="!vm.form.numero"
+                type="text"
+                name="bairro"
+                class="form-control border-input"
+                placeholder="Biarro"
+                required>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group" ng-class="{ 'has-error': form.cidade.$invalid }">
+                <label>Cidade</label>
+                <input
+                ng-model="vm.form.cidade"
+                ng-disabled="!vm.form.bairro"
+                type="text"
+                name="cidade"
+                class="form-control border-input"
+                placeholder="Cidade"
+                required>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group" ng-class="{ 'has-error': form.estado.$invalid }">
+                <label>Estado</label>
+                <input
+                ng-model="vm.form.estado"
+                ng-disabled="!vm.form.cidade"
+                type="text"
+                class="form-control border-input"
+                placeholder="Estado"
+                required>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+
+<div class="card col-md-8 col-md-offset-2">
+    <div class="content">
+        <form>
+            <div class="row">
+                <legend ng-if="vm.plan.isActive" class="text text-success">Plano esta ATIVO</legend>
+                <legend ng-if="!vm.plan.isActive" class="text text-danger">Plano esta Desativado</legend>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nome do Plano</label>
+                        <input
+                            ng-model="vm.plan.planName"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Digite o nome do plano">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Valor por SMS</label>
+                        <input
+                            ng-model="vm.plan.costPerSms"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Custo por sms enviado">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Franquia SMS</label>
+                        <input
+                            ng-model="vm.plan.smsFree"
+                            type="text"
+                            value="0"
+                            class="form-control border-input"
+                            placeholder="Franquia SMS">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vencimento</label>
+                        <input
+                            type="text"
+                            mask="9999-99-99"
+                            ng-model="vm.plan.expiresIn"
+                            id="data"
+                            class="form-control datetimepicker"
+                            placeholder="Vencimento do plano">
+                    </div>
+                    <br><br>
+                </div>
+
+                <legend ng-if="vm.canDeactivate">Clientes neste plano</legend>
+                <input
+                    id="tags"
+                    name="tagsinput"
+                    class="tagsinput tag-info"
+                    value="" />
+
+                <br><br>
+                <legend>Status do plano</legend>
+                <button ng-disabled="vm.canDeactivate" ng-click="vm.ativarPlano(vm.plan._id)" ng-if="vm.plan.isActive" class="btn btn-danger btn-fill">Desativar Plano</button>
+
+                <button ng-click="vm.ativarPlano(vm.plan._id)" ng-if="!vm.plan.isActive" class="btn btn-success btn-fill">Ativar plano</button>
+
+            </div>
+            <div class="text-center">
+                <button
+                    ng-click="vm.updatePlan(vm.plan._id,vm.plan)"
+                    class="btn btn-info btn-fill btn-wd pull-right">
+                    Atualizar plano
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

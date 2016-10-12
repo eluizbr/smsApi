@@ -1,0 +1,59 @@
+<div class="card col-md-8 col-md-offset-2">
+    <div class="content">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input
+                            ng-model="user.username"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Username">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input
+                            ng-model="user.email"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Email">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input
+                            ng-model="user.firstName"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Nome">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>SobreNome</label>
+                        <input
+                            ng-model="user.lastName"
+                            type="text"
+                            class="form-control border-input"
+                            placeholder="Sobre Nome">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button
+                    ng-click="vm.addUser(user)"
+                    class="btn btn-info btn-fill btn-wd pull-right">
+                    Criar usuário
+                </button>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+    </div>
+</div>

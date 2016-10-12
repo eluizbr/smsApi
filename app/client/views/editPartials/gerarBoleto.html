@@ -1,0 +1,24 @@
+<div class="card" ng-if="vm.hasPlan">
+    <div class="header">
+        <h4 class="title">Gerar Boleto</h4>
+    </div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <span class="input-group-addon">R$</span>
+                    <input ng-model="vm.valor" type="text" class="form-control">
+                    <span class="input-group-addon">.00</span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <button ng-click="vm.gerarBoleto(vm.valor)" ng-disabled="!vm.valor" type="button" class="btn btn-wd btn-info btn-fill btn-magnify pull-right">
+                    <span class="btn-label">
+                        <i class="ti-money"></i>
+                    </span>
+                    Gerar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

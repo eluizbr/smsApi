@@ -1,0 +1,30 @@
+<div class="card card-user">
+    <div class="image">
+        <img src="../../assets/img/background.jpg" alt="..."/>
+    </div>
+    <div class="content">
+        <div class="author">
+          <img class="avatar border-white" src="../../assets/img/faces/face-0.jpg" alt="..."/>
+          <h4 class="title">{{ vm.client.razao }}<br />
+             <small><b>{{ vm.client.cnpj | cnpj }}</b></small>
+          </h4>
+        </div>
+        <hr>
+        <div class="text-center">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>{{ vm.client.credito | currency: 'R$ ' }}<br /><small>Saldo</small></h5>
+                </div>
+                <div class="col-md-4">
+                    <h5 ng-if="vm.hasPlan">{{ vm.client.planoId.costPerSms | currency: 'R$ '}}<br /><small>Custo por SMS</small></h5>
+                    <h5 ng-if="!vm.hasPlan">R$ 0,00<br /><small>Custo por SMS</small></h5>
+                </div>
+                <div class="col-md-4">
+                    <h5 ng-if="vm.hasPlan">{{ vm.client.credito / vm.client.planoId.costPerSms | number: 0 }}<br /><small>SMS disponíveis</small></h5>
+                    <h5 ng-if="!vm.hasPlan">0<br /><small>SMS disponíveis</small></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

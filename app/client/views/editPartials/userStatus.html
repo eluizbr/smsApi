@@ -1,0 +1,37 @@
+
+<div class="table">
+
+    <div class="header">
+        <h4 ng-repeat="obj in vm.clientStatus"
+            ng-if="vm.client.status == obj.status"
+            class="title">Status:
+            <b class="text {{ obj.class }}">{{ obj.nome }}</b>
+        </h4>
+
+    </div>
+
+    <div class="content">
+        <div class="row" ng-if="vm.hasContract">
+            <div class="col-md-6">
+                <h5>Alterar status</h5>
+            </div>
+            <div class="col-md-6">
+                <div class="dropup">
+                    <button class="btn btn-info btn-block btn-fill btn-block dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        Selecione um status
+                        <b class="caret"></b>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li
+                            ng-click="vm.newStatus(obj.status)"
+                            ng-repeat="obj in vm.clientStatus">
+                            <a ng-if="obj.mostrar">{{ obj.nome }}</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
