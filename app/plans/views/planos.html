@@ -34,7 +34,7 @@
                         <td>{{ plan.planName }}</td>
                         <td>{{ plan.costPerSms | currency: 'R$ ' }}</td>
                         <td>{{ plan.smsFree }}</td>
-                        <td>{{ plan.expiresIn | date: 'medium' }}</td>
+                        <td>{{ plan.expiresIn | date: 'mediumDate' }}</td>
                         <td>{{ plan.clients.length }}</td>
                         <td ng-if="plan.isActive"><i class="material-icons text text-success">thumb_up</i></td>
                         <td ng-if="!plan.isActive"><i class="material-icons text text-danger">thumb_down</i></td>

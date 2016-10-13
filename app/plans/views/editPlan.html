@@ -53,11 +53,30 @@
                 </div>
 
                 <legend ng-if="vm.canDeactivate">Clientes neste plano</legend>
-                <input
-                    id="tags"
-                    name="tagsinput"
-                    class="tagsinput tag-info"
-                    value="" />
+
+                <div class="col-md-8 col-md-offset-2" ng-if="vm.canDeactivate">
+                    <div class="card card-plain">
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                                <thead>
+                                    <th>Cliente</th>
+                                    <th>Credito</th>
+                                    <th>Enviados</th>
+                                    <th>Recebidos</th>
+                                </thead>
+                                <tbody  ng-repeat="tags in vm.plan.clients">
+                                    <tr>
+                                        <td>{{ tags.fantasia }}</td>
+                                        <td>{{ tags.credito | currency: 'R$ ' }}</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
                 <br><br>
                 <legend>Status do plano</legend>

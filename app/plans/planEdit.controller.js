@@ -5,18 +5,14 @@
         .module('enviou')
         .controller('EditPlanController', EditPlanController);
 
-    EditPlanController.$inject = ['config', '$rootScope', '$http', '$stateParams'];
+    EditPlanController.$inject = ['config', '$rootScope', '$scope', '$http', '$stateParams'];
 
-    function EditPlanController (config, $rootScope, $http, $stateParams) {
+    function EditPlanController (config, $rootScope, $scope, $http, $stateParams) {
 
         var vm = this;
         vm.getPlan = getPlan();
         vm.ativarPlano = ativarPlano;
         vm.updatePlan = updatePlan;
-
-        $('#tags').tagsInput({
-            'interactive':false,
-        });
 
         $('#data').datetimepicker({
             locale: moment().locale('pt-BR'),
@@ -44,17 +40,10 @@
         function getPlan() {
             $http.get(`${config.url}/plan/${$stateParams.id}`)
                 .then(function (doc) {
-                    $('#tags').importTags('');
                     vm.plan = doc.data;
                     vm.canDeactivate = true;
-
                     if (doc.data.clients.length <=0 ){
                         vm.canDeactivate = false;
-                    } else {
-                        angular.forEach(doc.data.clients, function(tag) {
-                            $('#tags').addTag(tag.fantasia);
-                        });
-
                     }
 
                     $rootScope.spinner = false;

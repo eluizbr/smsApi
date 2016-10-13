@@ -67,7 +67,7 @@
                     }
 
                     // Paginação para os Boletos
-                    if (vm.client.paymentId.length >=3) {
+                    if (vm.client.paymentId.length >= 2) {
                         pageSize = 3;
                     }
 
